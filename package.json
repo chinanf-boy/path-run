@@ -15,7 +15,9 @@
 	},
 	"scripts": {
 		"test": "xo && nyc ava",
-		"demo": "node ./cli.js demo/input/input1.js demo/output/output3.js"
+		"pub": "npm version patch && npm publish && git push && git push --tags",
+		"demo:1-To-3": "node ./cli.js demo/input/input1.js demo/output/output3.js",
+		"demo:3-To-1": "node ./cli.js demo/output/output3.js demo/input/input1.js"
 	},
 	"files": [
 		"index.js",
@@ -30,7 +32,7 @@
 		"chalk": "^2.4.1",
 		"meow": "^3.7.0",
 		"node-filelist": "^1.0.0",
-		"nodepaths": "^2.0.5",
+		"nodepaths": "^2.0.6",
 		"relative": "^3.0.2",
 		"replace-in-file": "^3.4.0"
 	},
