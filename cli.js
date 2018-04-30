@@ -3,8 +3,10 @@
 	"use strict";
 	const meow = require("meow");
 	const path = require("path");
+	const chalk = require("chalk");
+
 	const replace = require('replace-in-file');
-	const { pathRun, IsTruePath} = require(".");
+	const { pathRun, IsTruePath} =   require('.');
 
 
 
@@ -74,10 +76,13 @@ try{
 
 	// console.log(pathRunMap)
 	for(let i in replaceMesaages){
+
 		let changes = await replace(replaceMesaages[i])
-		console.log(changes,"Done")
+
+		changes.length > 0 && (console.log(chalk.green(changes),chalk.blue(" >>> Done")))
 	}
 
+	console.log(chalk.yellow("All done"))
 }catch(err){
 	throw new Error(err)
 }

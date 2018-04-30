@@ -3,21 +3,52 @@
 > esay change you require paths Now
 
 
+
 ## Install
 
 ```
 $ npm install path-run
 ```
 
+## 正确做法使用-Cli
 
-## Usage
+1. 复制文件到目的地
 
-```js
-const pathRun = require('path-run');
-
-pathRun('unicorns');
-//=> 'unicorns & rainbows'
 ```
+- demo
+	- index.js
+	- input
+		- input1.js
+		- input2.js
+	- output
+		- output1.js
+		- output2.js
+```
+
+```
+- demo
+	- index.js
+	- input
+		- ✂️input1.js // <===== copy to output
+		- input2.js
+	- output
+		- ➕output3.js // <===== from input/input1.js
+		- output1.js
+		- output2.js
+```
+
+2. 运行cli
+
+
+``` bash
+path-run demo/input/input1.js demo/output/output3.js
+# path-run [input] [output]
+
+```
+
+`process.cwd()` 下所有引用 `input` 的 路径 都会变为 `output`
+
+---
 
 
 ## API
