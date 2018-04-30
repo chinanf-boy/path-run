@@ -26,7 +26,10 @@
 		""
 	],
 	"dependencies": {
-		"meow": "^3.7.0"
+		"chalk": "^2.4.1",
+		"meow": "^3.7.0",
+		"nodepaths": "^2.0.4",
+		"replace-in-file": "^3.4.0"
 	},
 	"devDependencies": {
 		"ava": "^0.20.0",
