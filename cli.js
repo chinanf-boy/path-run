@@ -44,7 +44,7 @@ try{
 	let replaceMesaages = []
 
 	let pathRunMap = await pathRun(InPath, OutPath)
-	// console.log(pathRunMap)
+
 	let Ks = Object.keys(pathRunMap)
 	for( let i in Ks){
 		let replaceOptions = {}

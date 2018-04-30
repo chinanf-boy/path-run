@@ -14,7 +14,8 @@
 		"node": ">=4"
 	},
 	"scripts": {
-		"test": "xo && nyc ava"
+		"test": "xo && nyc ava",
+		"demo": "node ./cli.js demo/input/input1.js demo/output/output3.js"
 	},
 	"files": [
 		"index.js",
@@ -28,7 +29,8 @@
 	"dependencies": {
 		"chalk": "^2.4.1",
 		"meow": "^3.7.0",
-		"nodepaths": "^2.0.4",
+		"node-filelist": "^1.0.0",
+		"nodepaths": "^2.0.5",
 		"relative": "^3.0.2",
 		"replace-in-file": "^3.4.0"
 	},
