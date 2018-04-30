@@ -1,5 +1,5 @@
 import test from 'ava';
-import m from '.';
+import m from './index.js';
 
 test('title', t => {
 	const err = t.throws(() => {

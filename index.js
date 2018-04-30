@@ -27,7 +27,7 @@ async function pathRun(In, Out){
 function IsTruePath(Abs){
 	try{
 
-		require.resolve(Abs)
+		return require.resolve(Abs)
 
 	}catch(err){
 		throw new Error(chalk.red('错误路径 ==>>> '+Abs+'\n'))

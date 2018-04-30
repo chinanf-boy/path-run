@@ -29,6 +29,7 @@
 		"chalk": "^2.4.1",
 		"meow": "^3.7.0",
 		"nodepaths": "^2.0.4",
+		"relative": "^3.0.2",
 		"replace-in-file": "^3.4.0"
 	},
 	"devDependencies": {

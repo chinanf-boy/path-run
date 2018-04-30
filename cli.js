@@ -4,9 +4,9 @@
 	const meow = require("meow");
 	const path = require("path");
 	const chalk = require("chalk");
-
+	const relative = require('relative');
 	const replace = require('replace-in-file');
-	const { pathRun, IsTruePath} =   require('.');
+	const { pathRun, IsTruePath} =  require('./index.js');
 
 
 
@@ -38,35 +38,44 @@ let OutPath = path.resolve(process.cwd(), Out)
 
 try{
 
-	IsTruePath(InPath)
-	IsTruePath(OutPath)
+	InPath = IsTruePath(InPath)
+	OutPath = IsTruePath(OutPath)
 
 	let replaceMesaages = []
 
 	let pathRunMap = await pathRun(InPath, OutPath)
+	// console.log(pathRunMap)
 	let Ks = Object.keys(pathRunMap)
 	for( let i in Ks){
 		let replaceOptions = {}
 		let fileAbs = pathRunMap[Ks[i]].map(f =>{
-			return path.resolve( path.dirname(Ks[i]), f)
+			try{
+				return require.resolve(path.resolve(path.dirname(Ks[i]), f))
+			}catch(err){
+				return ""
+			}
 		})
-		// console.log(fileAbs)
 		let Index = fileAbs.indexOf(InPath)
 		if(Index >= 0){ // match Abs path from user InPath
 
-			pathRunMap[Ks[i]][Index] = Out
+			let fileToInPath = pathRunMap[Ks[i]][Index] // file content require relative path : user
+			let fileToOutPath = relative(Ks[i], OutPath) // file content require relative path : Path-run
+			if(!fileToOutPath.startsWith('.')){
+				fileToOutPath = './'+fileToOutPath
+			}
+			if(fileToInPath === fileToOutPath) continue
 
 			// replace content in file
 			replaceOptions = {
 				files: Ks[i],
-				from: new RegExp(`( from)([\\s]+)(\\'|\\")+[`+In+`]+((\\'|\\")+([^\\S;])?)`,'g'),
-				to: ` from '${Out}'`
+				from: new RegExp(`( from)([\\s]+)(\\'|\\")+[`+fileToInPath+`]+((\\'|\\")+([^\\S;])?)`,'g'),
+				to: ` from '${fileToOutPath}'`
 			}
 			replaceMesaages.push(replaceOptions)
 			replaceOptions = {
 				files: Ks[i],
-				from: new RegExp(`(require\\()(\\'|\\")[`+In+`]+((\\'|\\")([\\)])+)`,'g'),
-				to: ` require('${Out}')`
+				from: new RegExp(`(require\\()(\\'|\\")[`+fileToInPath+`]+((\\'|\\")([\\)])+)`,'g'),
+				to: `require('${fileToOutPath}')`
 			}
 			replaceMesaages.push(replaceOptions)
 		}
