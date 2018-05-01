@@ -4,8 +4,6 @@ const relative = require('relative');
 const path = require('path')
 const chalk = require('chalk')
 
-
-
 async function pathRun(options){
 
 	let { InPath, OutPath } = options

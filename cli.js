@@ -18,11 +18,10 @@
 		input  要更改的路径
 		output 变成的路径
 
-	Examples
-		$ path-run 'vue' './vue'
+		Examples
+        $ path-run './index' './lib/index'
 
-	will change all process.cwd()/* files require Path 'vue' => './vue'
-`);
+  will change all process.cwd()/* files require Path 'index' => './lib/index'`);
 
 const CWD = process.cwd()
 
