@@ -1,6 +1,6 @@
 {
 	"name": "path-run",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "esay change you require paths Now",
 	"license": "MIT",
 	"main": "./index.js",
@@ -14,8 +14,8 @@
 	"engines": {
 		"node": ">=4"
 	},
-	"ava":{
-		"files":[
+	"ava": {
+		"files": [
 			"test/test.js",
 			"!test/fixture/*"
 		]
