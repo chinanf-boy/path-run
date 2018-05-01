@@ -48,6 +48,10 @@ try{
 		changes.length > 0 && (console.log(chalk.green(changes),chalk.blue(" >>> Done")))
 	}
 
+	if(process.env.RUN_DEBUG){
+		console.log(replaceMesaages)
+	}
+
 	console.log(chalk.yellow("All done"))
 
 }catch(err){
