@@ -42,13 +42,13 @@ async function pathRun(options){
 			// replace content in file
 			replaceOptions = {
 				files: Ks[i],
-				from: new RegExp(`( from)([\\s]+)(\\'|\\")+[`+fileToInPath+`]+((\\'|\\")+([^\\S;])?)`,'g'),
+				from: new RegExp(`( from)([\\s]+)(\\'|\\")+(`+fileToInPath+`)+((\\'|\\")+([^\\S;])?)`,'g'),
 				to: ` from '${fileToOutPath}'`
 			}
 			replaceMesaages.push(replaceOptions)
 			replaceOptions = {
 				files: Ks[i],
-				from: new RegExp(`(require\\()(\\'|\\")[`+fileToInPath+`]+((\\'|\\")([\\)])+)`,'g'),
+				from: new RegExp(`(require\\()(\\'|\\")(`+fileToInPath+`)+((\\'|\\")([\\)])+)`,'g'),
 				to: `require('${fileToOutPath}')`
 			}
 			replaceMesaages.push(replaceOptions)
