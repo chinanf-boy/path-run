@@ -4,7 +4,6 @@
 	const meow = require("meow");
 	const path = require("path");
 	const chalk = require("chalk");
-	const relative = require('relative');
 	const replace = require('replace-in-file');
 	const { pathRun, IsTruePath} =  require('./index.js');
 
@@ -25,6 +24,8 @@
 	will change all process.cwd()/* files require Path 'vue' => './vue'
 `);
 
+const CWD = process.cwd()
+
 if (!cli.input || cli.input.length !== 2) {
 	console.log(cli.help);
 	process.exit(1);
@@ -33,57 +34,14 @@ if (!cli.input || cli.input.length !== 2) {
 let In = cli.input[0];
 let Out = cli.input[1];
 
-let InPath = path.resolve(process.cwd(), In)
-let OutPath = path.resolve(process.cwd(), Out)
+let InPath = path.resolve(CWD, In)
+let OutPath = path.resolve(CWD, Out)
 
 try{
 
-	InPath = IsTruePath(InPath)
-	OutPath = IsTruePath(OutPath)
+	let replaceMesaages = await pathRun({InPath, OutPath, cwd:CWD})
 
-	let replaceMesaages = []
-
-	let pathRunMap = await pathRun(InPath, OutPath)
-
-	let Ks = Object.keys(pathRunMap)
-	for( let i in Ks){
-		let replaceOptions = {}
-		let fileAbs = pathRunMap[Ks[i]].map(f =>{
-			try{
-				return require.resolve(path.resolve(path.dirname(Ks[i]), f))
-			}catch(err){
-				return ""
-			}
-		})
-		let Index = fileAbs.indexOf(InPath)
-		if(Index >= 0){ // match Abs path from user InPath
-
-			let fileToInPath = pathRunMap[Ks[i]][Index] // file content require relative path : user
-			let fileToOutPath = relative(Ks[i], OutPath) // file content require relative path : Path-run
-			if(!fileToOutPath.startsWith('.')){
-				fileToOutPath = './'+fileToOutPath
-			}
-			if(fileToInPath === fileToOutPath) continue
-
-			// replace content in file
-			replaceOptions = {
-				files: Ks[i],
-				from: new RegExp(`( from)([\\s]+)(\\'|\\")+[`+fileToInPath+`]+((\\'|\\")+([^\\S;])?)`,'g'),
-				to: ` from '${fileToOutPath}'`
-			}
-			replaceMesaages.push(replaceOptions)
-			replaceOptions = {
-				files: Ks[i],
-				from: new RegExp(`(require\\()(\\'|\\")[`+fileToInPath+`]+((\\'|\\")([\\)])+)`,'g'),
-				to: `require('${fileToOutPath}')`
-			}
-			replaceMesaages.push(replaceOptions)
-		}
-
-
-	}
-
-	// console.log(pathRunMap)
+	if(replaceMesaages.length)
 	for(let i in replaceMesaages){
 
 		let changes = await replace(replaceMesaages[i])
@@ -92,7 +50,8 @@ try{
 	}
 
 	console.log(chalk.yellow("All done"))
+
 }catch(err){
-	throw new Error(err)
+	throw new Error("cli"+err)
 }
 })();
