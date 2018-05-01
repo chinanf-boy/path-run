@@ -3,6 +3,7 @@
 	"version": "0.0.1",
 	"description": "esay change you require paths Now",
 	"license": "MIT",
+	"main": "./index.js",
 	"repository": "chinanf-boy/path-run",
 	"author": {
 		"name": "chinanf-boy",
