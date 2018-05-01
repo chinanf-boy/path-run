@@ -2,12 +2,22 @@
 
 > esay change you require paths Now
 
+[中文](./readme.md) | [english](./readme.en.md)
 
+如果改变, 一个文件的位置, 那么相对应, 其他文件对这个文件的引用修改就是个问题
+
+你可以试试 `path-run`, 改动你的文件位置不那么手动
 
 ## Install
 
 ```
-$ npm install path-run
+npm install path-run
+```
+
+-
+
+```
+yarn add path-run
 ```
 
 ## 正确做法使用-Cli
@@ -37,7 +47,7 @@ $ npm install path-run
 		- output2.js
 ```
 
-2. 运行cli
+2. 运行 `cli`
 
 
 ``` bash
@@ -48,49 +58,71 @@ path-run demo/input/input1.js demo/output/output3.js
 
 `process.cwd()` 下所有引用 `input` 的 路径 都会变为 `output`
 
+
+3. 移除 `input1.js`
+
+```
+- demo
+	- index.js
+	- input
+					<===== ✂️cut
+		- input2.js
+	- output
+		- output3.js // <===== from input/input1.js
+		- output1.js
+		- output2.js
+```
+
+> DONE
+
 ---
 
 
 ## API
 
-### pathRun(input, [options])
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
+### pathRun({options})
 
 #### options
 
-##### foo
+##### 1. InPath
 
-Type: `boolean`<br>
-Default: `false`
+Type: `string`
 
-Lorem ipsum.
+Abs Path
+
+##### 2. OutPath
+
+Type: `string`
+
+Abs Path
+##### 3. cwd
+
+Type: `string`
+
+default : `process.cwd()`
+
 
 
 ## CLI
 
 ```
-$ npm install --global path-run
+npm install --global path-run
 ```
 
 ```
-$ path-run --help
+  esay change you require paths Now
 
   Usage
-    path-run [input]
+    $ path-run [input] [output]
 
   Options
-    --foo  Lorem ipsum [Default: false]
+        input  要更改的路径
+        output 变成的路径
 
   Examples
-    $ path-run
-    unicorns & rainbows
-    $ path-run ponies
-    ponies & rainbows
+        $ path-run './index' './lib/index'
+
+  will change all process.cwd()/* files require Path 'index' => './lib/index'
 ```
 
 
