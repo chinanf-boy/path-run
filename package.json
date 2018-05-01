@@ -22,7 +22,7 @@
 	},
 	"scripts": {
 		"test": "xo !demo/* && nyc ava -s -v",
-		"pub": "npm version patch && npm publish && git push && git push --tags",
+		"pub": "npm run test && npm version patch && npm publish && git push && git push --tags",
 		"demo:1-To-3": "node ./cli.js demo/input/input1.js demo/output/output3.js",
 		"demo:3-To-1": "node ./cli.js demo/output/output3.js demo/input/input1.js"
 	},
