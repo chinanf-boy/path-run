@@ -109,6 +109,10 @@ Default :`Process.cwd()`
 
       will change all process.cwd()/* files require Path 'index' => './lib/index'
 
+## concat
+
+[nodepaths](https://github.com/chinanf-boy/NodePath) js module map
+
 ## License
 
 Mit ©[Chinanf-boy](http://llever.com)

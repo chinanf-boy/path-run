@@ -125,6 +125,9 @@ npm install --global path-run
   will change all process.cwd()/* files require Path 'index' => './lib/index'
 ```
 
+## 联系
+
+[nodepaths](https://github.com/chinanf-boy/NodePath) js 模块描述
 
 ## License
 
