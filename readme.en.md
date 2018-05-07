@@ -11,11 +11,8 @@ You can try`Path-run`, change your file location is not so manual
 
 ## Install
 
-    npm install path-run
+	npm install --global path-run
 
-\-
-
-    yarn add path-run
 
 ## Correct use of -cli
 
@@ -91,6 +88,24 @@ Type:`String`
 
 Default :`Process.cwd()`
 
+##### return
+
+Type: `Array`
+
+`Array[i]` like this
+
+``` js
+const options = {
+  files: 'path/to/file',
+  from: /foo/g,
+  to: 'bar',
+};
+```
+
+by `replace-in-file` use
+
+https://github.com/adamreisnz/replace-in-file
+
 ## Cli
 
     npm install --global path-run
@@ -101,8 +116,8 @@ Default :`Process.cwd()`
         $ path-run [input] [output]
 
       Options
-            input  要更改的路径
-            output 变成的路径
+            input  「want to change」
+            output  [turn on ]
 
       Examples
             $ path-run './index' './lib/index'

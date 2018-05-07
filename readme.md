@@ -11,13 +11,7 @@
 ## Install
 
 ```
-npm install path-run
-```
-
--
-
-```
-yarn add path-run
+npm install --global path-run
 ```
 
 ## 正确做法使用-Cli
@@ -101,6 +95,23 @@ Type: `string`
 
 default : `process.cwd()`
 
+##### return
+
+Type: `Array`
+
+数组中每个值像这样
+
+``` js
+const options = {
+  files: 'path/to/file',
+  from: /foo/g,
+  to: 'bar',
+};
+```
+
+被 `replace-in-file` 使用
+
+https://github.com/adamreisnz/replace-in-file
 
 
 ## CLI
