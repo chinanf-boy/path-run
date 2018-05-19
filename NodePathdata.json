@@ -1,0 +1,57 @@
+{
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/cli.js": [
+		"meow",
+		"path",
+		"chalk",
+		"replace-in-file",
+		"./index.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/index.js": [
+		"nodepaths",
+		"relative",
+		"path",
+		"chalk",
+		"${fileToOutPath}",
+		"${fileToOutPath}"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/demo/index.js": [
+		"path",
+		"./input/config.json",
+		"./output/output3.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/demo/output/output3.js": [
+		"./output3.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/test/test.js": [
+		"ava",
+		"path",
+		"../index.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/demo/input/input1.js": [
+		"./input2",
+		"fs",
+		"./config.json"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/demo/output/output1.js": [
+		"./output3.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/demo/output/output2.js": [
+		"./output3.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/test/fixture/demo/index.js": [
+		"path",
+		"./output/output3.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/test/fixture/demo/output/output3.js": [
+		"./output3.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/test/fixture/demo/input/input1.js": [
+		"./input2"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/test/fixture/demo/output/output1.js": [
+		"./output3.js"
+	],
+	"/Users/lizhenyong/Desktop/JSJSJSJSJSJJSJS——project/Path-run/test/fixture/demo/output/output2.js": [
+		"./output3.js"
+	]
+}

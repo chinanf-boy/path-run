@@ -19,6 +19,7 @@ async function pathRun(options){
 
 	let Ks = Object.keys(pathRunMap)
 
+	// first step: change other file require/import InPath to Outpath
 	if(Ks.length) // <==== [] will too many for let i in []
 	for( let i in Ks){
 		let replaceOptions = {}
@@ -54,10 +55,50 @@ async function pathRun(options){
 			replaceMesaages.push(replaceOptions)
 		}
 	}
+
+	// second step : change OutPath-file , inside require/import other file path
+	if(Ks.length){
+		let requireList = pathRunMap[InPath]
+		let replaceOptions = {}
+		let fileAbs = requireList.map(f =>{
+			try{
+				return require.resolve(path.resolve(path.dirname(InPath), f))
+				// get every file abs path
+			}catch(err){
+				return "" // and node module or @/index.vue :vue  == ""
+			}
+		})
+
+		fileAbs.forEach((absPath,index) =>{
+			if(!absPath || absPath.includes("node_modules/")){
+				return
+			}
+			let oldRelativePath = requireList[index]
+
+			let newRelativePath = relative(OutPath, absPath)
+
+			replaceOptions = {
+				files: OutPath,
+				from: new RegExp(`(require\\()(\\'|\\")(`+oldRelativePath+`)+((\\'|\\")([\\)])+)`,'g'),
+				to: `require('${newRelativePath}')`
+			}
+			replaceMesaages.push(replaceOptions)
+
+			replaceOptions = {
+				files: Ks[i],
+				from: new RegExp(`( from)([\\s]+)(\\'|\\")+(`+oldRelativePath+`)+((\\'|\\")+([^\\S;])?)`,'g'),
+				to: ` from '${newRelativePath}'`
+			}
+			replaceMesaages.push(replaceOptions)
+		})
+
+	}
+
 	return replaceMesaages
 };
 
 function IsTruePath(Abs){
+	// Abs == absolute path
 	try{
 
 		return require.resolve(Abs)

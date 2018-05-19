@@ -1,2 +1,2 @@
-const fromInput1 = require('./output3.js')
+const fromInput1 = require('../input/input1.js')
 
