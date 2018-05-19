@@ -1,2 +1,3 @@
-const fromInput1 = require('./output3.js')
+const input2 = require('../input/input2')
 
+module.exports = input2

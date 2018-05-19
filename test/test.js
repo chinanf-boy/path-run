@@ -22,7 +22,8 @@ test.serial('pathRun', async t => {
 	let OutPath = path.resolve(DemoPath, './input/input1')
 
 	// console.log(InPath, OutPath, __dirname)
-	let R = await pathRun({InPath, OutPath, cwd:__dirname}).catch(err => err)
+	let R = await pathRun({InPath, OutPath, cwd:__dirname}).catch(err =>
+		console.log(err))
 
 	t.is(R.length, 8)
 
@@ -44,6 +45,6 @@ test.serial('pathRun default [].length 0', async t => {
 
 	let R = await pathRun({InPath, OutPath, cwd:__dirname}).catch(err => err)
 
-	t.is(R.length, 0)
+	t.is(R.length, 2)
 
 });

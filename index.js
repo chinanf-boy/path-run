@@ -20,7 +20,7 @@ async function pathRun(options){
 	let Ks = Object.keys(pathRunMap)
 
 	// first step: change other file require/import InPath to Outpath
-	if(Ks.length) // <==== [] will too many for let i in []
+	if(Ks && Ks.length) // <==== [] will too many for let i in []
 	for( let i in Ks){
 		let replaceOptions = {}
 		let fileAbs = pathRunMap[Ks[i]].map(f =>{
@@ -57,7 +57,7 @@ async function pathRun(options){
 	}
 
 	// second step : change OutPath-file , inside require/import other file path
-	if(Ks.length){
+	if(Ks && Ks.length){
 		let requireList = pathRunMap[InPath]
 		let replaceOptions = {}
 		let fileAbs = requireList.map(f =>{
@@ -85,7 +85,7 @@ async function pathRun(options){
 			replaceMesaages.push(replaceOptions)
 
 			replaceOptions = {
-				files: Ks[i],
+				files: OutPath,
 				from: new RegExp(`( from)([\\s]+)(\\'|\\")+(`+oldRelativePath+`)+((\\'|\\")+([^\\S;])?)`,'g'),
 				to: ` from '${newRelativePath}'`
 			}
