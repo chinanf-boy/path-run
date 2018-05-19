@@ -50,7 +50,9 @@ path-run demo/input/input1.js demo/output/output3.js
 
 ```
 
-`process.cwd()` 下所有引用 `input` 的 路径 都会变为 `output`
+1⃣️`process.cwd()` 下所有引用 `input` 的 路径 都会变为 `output`
+2⃣️ `output` 的 文件 下, 导入相对文件正确导入
+
 
 
 3. 移除 `input1.js`

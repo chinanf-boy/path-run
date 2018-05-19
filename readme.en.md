@@ -45,7 +45,8 @@ path-run demo/input/input1.js demo/output/output3.js
 # path-run [input] [output]
 ```
 
-`Process.cwd()`All references below`Input`The path will become`Output`
+1⃣️`Process.cwd()`All references below`Input`The path will become`Output`
+2⃣️ `Output` file , inside `require/import` file path change right relative path
 
 3.  Remove`Input1.js`
 
