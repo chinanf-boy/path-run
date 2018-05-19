@@ -1,4 +1,4 @@
-# path-run [![Build Status](https://travis-ci.org/chinanf-boy/path-run.svg?branch=master)](https://travis-ci.org/chinanf-boy/path-run) [![codecov](https://codecov.io/gh/chinanf-boy/path-run/badge.svg?branch=master)](https://codecov.io/gh/chinanf-boy/path-run?branch=master)
+# path-run [![Build Status](https://travis-ci.org/chinanf-boy/Path-run.svg?branch=master)](https://travis-ci.org/chinanf-boy/Path-run) [![codecov](https://codecov.io/gh/chinanf-boy/Path-run/badge.svg?branch=master)](https://codecov.io/gh/chinanf-boy/Path-run?branch=master)
 
 > esay change you require paths Now
 

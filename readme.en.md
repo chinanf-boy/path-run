@@ -1,5 +1,5 @@
 
-# Path-run[![Build Status](https://travis-ci.org/chinanf-boy/path-run.svg?branch=master)](https://travis-ci.org/chinanf-boy/path-run) [![codecov](https://codecov.io/gh/chinanf-boy/path-run/badge.svg?branch=master)](https://codecov.io/gh/chinanf-boy/path-run?branch=master)
+# path-run[![Build Status](https://travis-ci.org/chinanf-boy/Path-run.svg?branch=master)](https://travis-ci.org/chinanf-boy/Path-run) [![codecov](https://codecov.io/gh/chinanf-boy/Path-run/badge.svg?branch=master)](https://codecov.io/gh/chinanf-boy/Path-run?branch=master)
 
 > Esay change you require paths now
 
@@ -7,7 +7,7 @@
 
 If you change the location of a file, then the corresponding file modification of other files is a problem.
 
-You can try`Path-run`, change your file location is not so manual
+You can try`path-run`, change your file location is not so manual
 
 ## Install
 
