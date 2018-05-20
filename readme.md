@@ -86,6 +86,10 @@ path-run demo/input/input1.js demo/output/output3.js
 
 ---
 
+## 警告⚠️ , `path-run` 不会 改变 `package.json` main 或 bin 字段, 请自行修正
+
+---
+
 
 ## API
 

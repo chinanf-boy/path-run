@@ -77,6 +77,11 @@ other require file diff
 
 * * *
 
+## Warnning⚠️ , `path-run` do not change `package.json` main or bin string, pleace rechange yourself
+
+
+---
+
 ## Api
 
 ### Pathrun({options})
