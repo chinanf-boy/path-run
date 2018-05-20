@@ -69,7 +69,7 @@ path-run demo/input/input1.js demo/output/output3.js
 		- output2.js
 ```
 
-[真实项目-transltemds](https://github.com/chinanf-boy/translate-mds)
+[真实项目-transltemds](https://github.com/chinanf-boy/translate-mds/commit/af88620139276479a86185c731f4862ec54a54e4)
 
 命令行实例
 

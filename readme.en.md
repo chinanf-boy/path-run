@@ -61,7 +61,7 @@ path-run demo/input/input1.js demo/output/output3.js
     		- output1.js
     		- output2.js
 
-[real-project transltemds](https://github.com/chinanf-boy/translate-mds)
+[real-project transltemds](https://github.com/chinanf-boy/translate-mds/commit/af88620139276479a86185c731f4862ec54a54e4)
 
 cli demo
 
