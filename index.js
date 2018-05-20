@@ -77,6 +77,10 @@ async function pathRun(options){
 
 			let newRelativePath = relative(OutPath, absPath)
 
+			if(!newRelativePath.startsWith('.')){
+				newRelativePath = './'+newRelativePath
+			}
+
 			replaceOptions = {
 				files: OutPath,
 				from: new RegExp(`(require\\()(\\'|\\")(`+oldRelativePath+`)+((\\'|\\")([\\)])+)`,'g'),
