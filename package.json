@@ -1,6 +1,6 @@
 {
 	"name": "path-run",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "esay change you require paths Now",
 	"license": "MIT",
 	"main": "./index.js",
