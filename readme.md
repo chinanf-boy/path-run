@@ -69,7 +69,20 @@ path-run demo/input/input1.js demo/output/output3.js
 		- output2.js
 ```
 
-> DONE
+[真实项目-transltemds](https://github.com/chinanf-boy/translate-mds)
+
+命令行实例
+
+![demo-cli-show](./demo-show/demo.gif)
+
+输入与输出文件的变化
+
+![inpath-diff-outpath](./demo-show/diff.png)
+
+其他导入文件变化
+
+![index-diff](./demo-show/index-diff.png)
+
 
 ---
 

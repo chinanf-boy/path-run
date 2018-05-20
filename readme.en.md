@@ -61,7 +61,19 @@ path-run demo/input/input1.js demo/output/output3.js
     		- output1.js
     		- output2.js
 
-> Done
+[real-project transltemds](https://github.com/chinanf-boy/translate-mds)
+
+cli demo
+
+![demo-cli-show](./demo-show/demo.gif)
+
+inpath with outpath diff
+
+![inpath-diff-outpath](./demo-show/diff.png)
+
+other require file diff
+
+![index-diff](./demo-show/index-diff.png)
 
 * * *
 
