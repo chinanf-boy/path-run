@@ -21,7 +21,7 @@
 		]
 	},
 	"scripts": {
-		"test": "xo !demo/* && nyc ava -s -v",
+		"test": "nyc ava -s -v",
 		"pub": "npm run test && npm version patch && npm publish && git push && git push --tags",
 		"demo:1-To-3": "node ./cli.js demo/input/input1.js demo/output/output3.js",
 		"demo:3-To-1": "node ./cli.js demo/output/output3.js demo/input/input1.js"
@@ -45,8 +45,7 @@
 	"devDependencies": {
 		"ava": "^0.20.0",
 		"codecov": "^2.2.0",
-		"nyc": "^11.0.0",
-		"xo": "^0.18.2"
+		"nyc": "^11.0.0"
 	},
 	"nyc": {
 		"reporter": [
